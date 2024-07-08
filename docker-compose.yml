@@ -5,6 +5,9 @@ services:
     build: ./server
     container_name: server 
     ports:
+
+
+    
       - "3001:3001"
     environment: 
       -     mongodb+srv://ramuchalavadi99:MY5FMWuZj55vrZAU@cluster0.ykctmzw.mongodb.net/
