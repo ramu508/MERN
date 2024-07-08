@@ -20,5 +20,5 @@ jobs:
       - name: Merge main to testing branch
         run:
           git checkout testing
-          git merge main
+          git merge main --allow-unrelated-histories
           git push origin testing3
