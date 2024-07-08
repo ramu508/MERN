@@ -1,3 +1,4 @@
+// index.js
 const express = require('express');
 const mongoose = require('mongoose');
 const { ApolloServer, gql } = require('apollo-server-express');
@@ -27,17 +28,11 @@ async function startServer() {
     console.log(`Server is running on port ${port}`);
   });
 }
-beforeAll(async()=>{
-  await startServer(); 
-})
-test('GraphQL server started & running perfectly',async()=>{
-  const res=await request(app).post('/graphql').send({
-    query:`
-    query{
-    _schema{
-    queryType{
-    name}}}`
-  })
-  expected(res.statusCode).toBe(200)
-  expect(res.body.data._schema.queryType.name).toBe('Query')
-})
+
+function add(a, b) {
+  return a + b;
+}
+
+startServer();
+
+module.exports = { add };
