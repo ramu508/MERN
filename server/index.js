@@ -27,8 +27,17 @@ async function startServer() {
     console.log(`Server is running on port ${port}`);
   });
 }
-function TESTING(){
-  return 1;
-}
-TESTING();
-startServer();
+beforeAll(async()=>{
+  await startServer(); 
+})
+test('GraphQL server started & running perfectly',async()=>{
+  const res=await request(app).post('/graphql').send({
+    query:`
+    query{
+    _schema{
+    queryType{
+    name}}}`
+  })
+  expected(res.statusCode).toBe(200)
+  expect(res.body.data._schema.queryType.name).toBe('Query')
+})
