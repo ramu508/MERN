@@ -9,6 +9,8 @@ jobs:
   steps:
     - name: Chech the repo
       uses: action/checkout@v3
+      with:
+          token: ${{secrets.ACTIONS_PAT}}
     - name: Congfig Git
       run:
           git config --global user.name 'ramu508'
@@ -20,5 +22,5 @@ jobs:
       - name: Merge main to testing branch
         run:
           git checkout testing
-          git merge main --allow-unrelated-histories
+          git merge -X theirs main --allow-unrelated-histories
           git push origin testing3
