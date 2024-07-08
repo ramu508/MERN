@@ -28,7 +28,7 @@ async function startServer() {
   });
 }
 function TESTING(){
-  return 0;
+  return 1;
 }
 TESTING();
 startServer();
