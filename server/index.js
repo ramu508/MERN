@@ -6,11 +6,7 @@ const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
 const userApiFromRouter = require('./routes/userRoutes.js');
 
-const url = "mongodb+srv://ramuchalavadi99:MY5FMWuZj55vrZAU@cluster0.jgbqedv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Mongoose Connected"))
-  .catch((err) => console.log(err));
+const url = "mongodb+srv://ramuchalavadi99:MY5FMWuZj55vrZAU@cluster0.jgbqedv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })  .then(() => console.log("Mongoose Connected"))  .catch((err) => console.log(err));
 
 const connection = mongoose.connection;
 const app = express();
